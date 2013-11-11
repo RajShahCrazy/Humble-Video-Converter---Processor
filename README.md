@@ -5,6 +5,6 @@ Humble Video Converter Processor is a software to process and convert videos fro
 
 How to install?
 ===============
-1. Download git
+1. Download and install git
 2. Clone this repo
 3. Contribute to the project
