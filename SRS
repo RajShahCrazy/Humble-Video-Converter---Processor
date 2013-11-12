@@ -1,0 +1,113 @@
+INTRODUCTION
+
+The purpose of this document is to collect and analyze all assorted ideas that have come up to define the system, its requirements with respect to the users. We shall also predict and sort out how we hope this product will be used to gain a better understanding of the project, outline concepts that  may be used later and document ideas that are being considered but may be discarded as the product develops. 
+
+1.1 Purpose
+
+The purpose of this system is to help users edit video files. They can convert the files from one format to another as well as modify the files at the frame level, extract audio, add subtitles etc. 
+This document details all such requirements to help guide the development process and is used as the first blueprint to build further models from. It lists all the expectations from the system and delineates the scope of the system. 
+
+1.2 Scope
+
+The document is going to list all the requirements of the system being built based on all the functionalities expected from the project. This will however not detail any implementation, or design of any object modules etc. This application uses ffmpeg to implement the functionalities. Details of ffmpeg are however out of scope of the product and the document. l
+
+The file formats supported by this software application are : … []. [] are not. Further, only certain functionalities of frame processing are permitted. Features like overlaying frames or splicing frames of two different files are out of scope for this project. [] more detail to be added later.
+
+1.3 Definitions, Acronyms and Abbreviations [] - FFMPEG []
+
+1.4 References [] - to be added
+
+1.5 Overview
+
+The remaining sections of this document provide a general description, including characteristics of the users of this project, the functional, performance, system and hardware requirements. The interfaces, constraints and assumptions made while designing this. It also gives the user's viewpoint of the product. Section 3 gives some specific requirements and detailed description of functional requirements. Section 4 provides supporting information. 
+
+
+2 OVERALL DESCRIPTION
+
+This document contains the requirements of an application that wants to solve the problem of converting files from one format to another, as well as give users the option to edit and process these files. Some of these edits can be done at the frame level and thus give users extended control over their files. The rest of the document gives detail functions of the product, constraints, expected performance, assumptions and dependencies. 
+
+2.1 Product Perspective
+
+This application is distributed as an executable file which the user downloads on their own local machines. It is run primarily on windows platform, mainly windows 7 and up. It has so far not been tested for any other operating systems or hand held devices. 
+
+The product once downloaded and executed allows the user to upload files from their own machines to work with. Certain features are implemented at the frame level, certain are not. This application heavily relies on the functionalities provided by the third party open sourced library ffmpeg. Any functionality not implemented by the ffmpeg is not supported by our application. 
+
+2.2 Product Functions:
+
+The main functions of [ 'name' ] can be broadly categorized as 
+1. Users should be able to load files from their machines.
+2. They can then chose to either convert these files, add subtitles, or process them. 
+3. Conversion of files is supported from certain file formats to other. 
+4. Processing options allow for video editing of the video in terms of color and style. 
+5. Users can extract audio files and mute the video. 
+
+2.3 User Characteristics
+
+Users of [] are expected to be anyone who own personal computers running windows operating system and with access to the INTERNET. They store video files on their own machines and wish to edit and process these files on their own machines. They are expected to be familiar with the windows file environment and familiar with a simple GUI. 
+
+2.4 General Constraints
+
+1. All the features of [] are limited by the functionalities of the open sourced library called ffmpeg.
+2. This software does not implement anything outside of it. 
+3. Although video editing at the frame level is allowed, certain operations like video splicing or video superimposing is not possible. 
+
+2.5 Assumptions and Dependencies
+
+The only dependency is the open source software library called ffmpeg. All the functionalities that are being implemented for the users is being provided by ffmpeg. Hence any feature of our system has to be heavily modeled upon the features provided by ffmpeg. 
+
+3 SPECIFIC REQUIREMENTS
+
+This document will now attempt to outline some of the finer details of the requirements specification which is hoped will give a better picture of the solution to be implemented in the SDLC life cycle. 
+
+3.1 Functional Requirements
+
+Below is the control flow in detail. 
+
+1. the user executes the program on his/her machine.
+2. Upon startup, he/she is presented with a screen with 3 option. “convert', 'edit' 'subtitle'
+3. If he/she wishes to click on 'Convert” it takes him to a different screen. 
+4. The convert screen asks him to upload the files from his own machine and convert them to any other format from the available options displayed. 
+5. User is then presented with an option to save the files in a location of his choice. 
+6. If user wishes to process the files, user is shown another screen where he/she can do the video processing. 
+7. Here again the user has many options to chose from. Some let him edit at the frame level some don't. 
+8. The specific functions he can perform at this screen are 
+	a) Convert a video from color to gray scale. 
+	b) Extract audio from the video and save it as a separate file. 
+	c) Mute the audio in the video.
+	d) Change the frame speed or frame rate. 
+	e) Stylize a video file. 	
+9. The subtitle screen lets the user add text to certain frames of the video.
+10. at the end of every operation, the user has the option to save the video files.
+
+Abnormal Situations: 
+
+This section lists what are considered as abnormal situations: 
+….[]
+
+3.2 External Interface Requirements
+
+3.2.1 User Interfaces
+The software is only compatible to be run on a windows operating system. After the user executes the program the software opens up 3 options. Each of which takes the user to three very different screens. Each screen has similar functionalities to offer to the user. These three screens are 
+
+1. Conversion screen where the user converts the file formats
+2. Processing screen where the user has the option to process the files. 
+3. Subtitles screen for adding text and captions to the video. 
+
+3.2.2 Hardware Interfaces
+
+This software system is designed to work only on a windows operating system In its first release and only on desktop PCs and laptops. NO hand held devices are being targeted right now. SO this is not guaranteed to work on any mobile phones or tablet PCs. 
+
+3.2.3 Software Interfaces 
+? ffmpeg?
+
+3.2 PERFORMANCE REQUIREMENTS
+
+To be filled in later. 
+
+3.3 Additional attributes ?
+3.4 Security Requirements?
+3.5 Supportability Reqs?
+3.6 Other Requirement?
+
+Design Constraints: 
+	Windows operating system and FFMPEG. No feature not implemented by ffmpeg can be implemented by our system. Heavily relying on the functionalities of ffmpeg. 
