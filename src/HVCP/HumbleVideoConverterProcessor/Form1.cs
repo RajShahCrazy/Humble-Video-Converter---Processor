@@ -15,5 +15,21 @@ namespace HumbleVideoConverterProcessor
         {
             InitializeComponent();
         }
+
+        private void ConvertButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ProcessButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SubtitlesButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
