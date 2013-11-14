@@ -26,7 +26,7 @@ namespace HumbleVideoConverterProcessor
         {
             // TODO  Insert a valid path in the line below.
             MessageBox.Show("Form 2 loaded");
-            PlayFile(@"C:\Users\Jaewook\Documents\GitHub\Humble-Video-Converter---Processor\src\HVCP\HumbleVideoConverterProcessor\bin\Debug\Wildlife.wmv");
+            PlayFile(@"Wildlife.wmv");
         }
 
         private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
