@@ -8,3 +8,8 @@ C:\Users\Jaewook\Documents\GitHub\Humble-Video-Converter---Processor\src\HVCP\Hu
 C:\Users\Jaewook\Documents\GitHub\Humble-Video-Converter---Processor\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\Jaewook\Documents\GitHub\Humble-Video-Converter---Processor\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\HumbleVideoConverterProcessor.exe
 C:\Users\Jaewook\Documents\GitHub\Humble-Video-Converter---Processor\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\HumbleVideoConverterProcessor.pdb
+C:\Users\Jaewook\Documents\GitHub\Humble-Video-Converter---Processor\src\HVCP\HumbleVideoConverterProcessor\bin\Debug\Interop.WMPLib.dll
+C:\Users\Jaewook\Documents\GitHub\Humble-Video-Converter---Processor\src\HVCP\HumbleVideoConverterProcessor\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\Jaewook\Documents\GitHub\Humble-Video-Converter---Processor\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\Interop.WMPLib.dll
+C:\Users\Jaewook\Documents\GitHub\Humble-Video-Converter---Processor\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\AxInterop.WMPLib.dll
+C:\Users\Jaewook\Documents\GitHub\Humble-Video-Converter---Processor\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\HumbleVideoConverterProcessor.csproj.ResolveComReference.cache
