@@ -1,0 +1,10 @@
+These are the keyboard shortcuts that I've tentatively set up for the application
+
+Alt+C -> launches Convert screen
+Alt+S -> launches Subtitles screen
+Alt+P -> launches Processing screen
+F1 -> Help menu
+Ctrl+O -> Opens a file
+Ctrl+Shift+S -> Saves modified file
+Ctrl+W -> Closes file
+Alt+F4 -> Closes application
