@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using WMPLib;
 
 namespace HumbleVideoConverterProcessor
 {
@@ -65,10 +66,10 @@ namespace HumbleVideoConverterProcessor
             openVideoForProcessingDialog.Multiselect = true;
             openVideoForProcessingDialog.ShowDialog();
             
-            //accept the file and show it in the player stub
+            //validate the file and show it in the player stub
             if (openVideoForProcessingDialog.FileName.Length > 0)
             {
-                MessageBox.Show(openVideoForProcessingDialog.FileName.ToString());
+                previewVideoProcessing.URL = @openVideoForProcessingDialog.FileName.ToString();
             }
 
         }
@@ -116,6 +117,21 @@ namespace HumbleVideoConverterProcessor
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Seriously? When were user manuals ever useful? Use G-O-O-G-L-E!!!");
+        }
+
+        private void preview_process_WMP_MediaError(object sender, AxWMPLib._WMPOCXEvents_MediaErrorEvent e)
+        {
+            try
+            {
+                IWMPMedia2 errSrc = e.pMediaObject as IWMPMedia2;
+                IWMPErrorItem errItem = errSrc.Error;
+                MessageBox.Show("Error " + errItem.errorCode.ToString("X")
+                        + " in " + errSrc.sourceURL);
+            }
+            catch (InvalidCastException)
+            {
+            }
+
         }
     }
 }

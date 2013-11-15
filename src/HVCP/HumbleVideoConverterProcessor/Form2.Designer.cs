@@ -31,6 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Start = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.End = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sub_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txb_sh = new System.Windows.Forms.TextBox();
             this.txb_sm = new System.Windows.Forms.TextBox();
             this.txb_sc = new System.Windows.Forms.TextBox();
@@ -46,10 +50,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btn_add = new System.Windows.Forms.Button();
             this.btn_write = new System.Windows.Forms.Button();
-            this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Start = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.End = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sub_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -77,6 +77,30 @@
             this.dataGridView1.Size = new System.Drawing.Size(1017, 278);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Num
+            // 
+            this.Num.HeaderText = "Num";
+            this.Num.Name = "Num";
+            this.Num.Width = 50;
+            // 
+            // Start
+            // 
+            this.Start.HeaderText = "Start";
+            this.Start.Name = "Start";
+            this.Start.Width = 120;
+            // 
+            // End
+            // 
+            this.End.HeaderText = "End";
+            this.End.Name = "End";
+            this.End.Width = 120;
+            // 
+            // Sub_Text
+            // 
+            this.Sub_Text.HeaderText = "Text";
+            this.Sub_Text.Name = "Sub_Text";
+            this.Sub_Text.Width = 685;
             // 
             // txb_sh
             // 
@@ -201,30 +225,6 @@
             this.btn_write.TabIndex = 16;
             this.btn_write.Text = "Write2File";
             this.btn_write.UseVisualStyleBackColor = true;
-            // 
-            // Num
-            // 
-            this.Num.HeaderText = "Num";
-            this.Num.Name = "Num";
-            this.Num.Width = 50;
-            // 
-            // Start
-            // 
-            this.Start.HeaderText = "Start";
-            this.Start.Name = "Start";
-            this.Start.Width = 120;
-            // 
-            // End
-            // 
-            this.End.HeaderText = "End";
-            this.End.Name = "End";
-            this.End.Width = 120;
-            // 
-            // Sub_Text
-            // 
-            this.Sub_Text.HeaderText = "Text";
-            this.Sub_Text.Name = "Sub_Text";
-            this.Sub_Text.Width = 685;
             // 
             // Form2
             // 
