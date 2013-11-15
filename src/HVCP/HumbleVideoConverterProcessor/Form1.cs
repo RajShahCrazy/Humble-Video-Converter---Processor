@@ -45,5 +45,28 @@ namespace HumbleVideoConverterProcessor
         {
             
         }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Seriously? When were user manuals ever useful? Use G-O-O-G-L-E!!!");
+        }
+
+        private void processingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            form_processing = new ProcessingForm();
+            form_processing.Activate();
+            form_processing.Show();
+
+        }
+
+        private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
     }
 }

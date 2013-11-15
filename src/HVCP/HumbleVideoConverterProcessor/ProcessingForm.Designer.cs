@@ -49,6 +49,8 @@
             this.processingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.processingStatusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -58,10 +60,10 @@
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(452, 62);
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(517, 73);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(510, 268);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(480, 260);
             this.axWindowsMediaPlayer1.TabIndex = 1;
             // 
             // panel1
@@ -73,7 +75,7 @@
             this.panel1.Controls.Add(this.muteAudio);
             this.panel1.Controls.Add(this.addAudio);
             this.panel1.Controls.Add(this.speedVideo);
-            this.panel1.Location = new System.Drawing.Point(91, 93);
+            this.panel1.Location = new System.Drawing.Point(64, 90);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(255, 214);
             this.panel1.TabIndex = 2;
@@ -86,6 +88,7 @@
             this.addWatermark.TabIndex = 6;
             this.addWatermark.Text = "Add Watermark";
             this.addWatermark.UseVisualStyleBackColor = true;
+            this.addWatermark.Click += new System.EventHandler(this.addWatermark_Click);
             // 
             // createSketch
             // 
@@ -95,6 +98,7 @@
             this.createSketch.TabIndex = 5;
             this.createSketch.Text = "Create sketch from video";
             this.createSketch.UseVisualStyleBackColor = true;
+            this.createSketch.Click += new System.EventHandler(this.createSketch_Click);
             // 
             // extractAudio
             // 
@@ -104,6 +108,7 @@
             this.extractAudio.TabIndex = 4;
             this.extractAudio.Text = "Extract Audio";
             this.extractAudio.UseVisualStyleBackColor = true;
+            this.extractAudio.Click += new System.EventHandler(this.extractAudio_Click);
             // 
             // createbwVideo
             // 
@@ -113,6 +118,7 @@
             this.createbwVideo.TabIndex = 3;
             this.createbwVideo.Text = "Convert Video to Black and White";
             this.createbwVideo.UseVisualStyleBackColor = true;
+            this.createbwVideo.Click += new System.EventHandler(this.createbwVideo_Click);
             // 
             // muteAudio
             // 
@@ -122,6 +128,7 @@
             this.muteAudio.TabIndex = 2;
             this.muteAudio.Text = "Mute Audio";
             this.muteAudio.UseVisualStyleBackColor = true;
+            this.muteAudio.Click += new System.EventHandler(this.muteAudio_Click);
             // 
             // addAudio
             // 
@@ -131,7 +138,7 @@
             this.addAudio.TabIndex = 1;
             this.addAudio.Text = "Add Audio (mp3)";
             this.addAudio.UseVisualStyleBackColor = true;
-            this.addAudio.Click += new System.EventHandler(this.button1_Click);
+            this.addAudio.Click += new System.EventHandler(this.addAudio_Click);
             // 
             // speedVideo
             // 
@@ -149,7 +156,8 @@
             this.fileToolStripMenuItem,
             this.convertToolStripMenuItem,
             this.subtitlesToolStripMenuItem,
-            this.processingToolStripMenuItem});
+            this.processingToolStripMenuItem,
+            this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1021, 24);
@@ -170,7 +178,7 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -209,14 +217,17 @@
             // 
             // processingToolStripMenuItem
             // 
+            this.processingToolStripMenuItem.Enabled = false;
             this.processingToolStripMenuItem.Name = "processingToolStripMenuItem";
             this.processingToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
             this.processingToolStripMenuItem.Text = "Processing";
+            this.processingToolStripMenuItem.Click += new System.EventHandler(this.processingToolStripMenuItem_Click);
             // 
             // processingStatusStrip
             // 
             this.processingStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
+            this.toolStripStatusLabel1,
+            this.toolStripProgressBar1});
             this.processingStatusStrip.Location = new System.Drawing.Point(0, 645);
             this.processingStatusStrip.Name = "processingStatusStrip";
             this.processingStatusStrip.Size = new System.Drawing.Size(1021, 22);
@@ -227,8 +238,21 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
-            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(42, 17);
+            this.toolStripStatusLabel1.Text = "Status:";
+            // 
+            // toolStripProgressBar1
+            // 
+            this.toolStripProgressBar1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // ProcessingForm
             // 
@@ -275,5 +299,7 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
         private System.Windows.Forms.StatusStrip processingStatusStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
     }
 }
