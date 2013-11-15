@@ -28,3 +28,4 @@ D:\git_projects\Humble-Video-Converter---Processor\src\HVCP\HumbleVideoConverter
 D:\git_projects\Humble-Video-Converter---Processor\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\HumbleVideoConverterProcessor.Properties.Resources.resources
 D:\git_projects\Humble-Video-Converter---Processor\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\GenerateResource.read.1.tlog
 D:\git_projects\Humble-Video-Converter---Processor\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\git_projects\Humble-Video-Converter---Processor\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\HumbleVideoConverterProcessor.ProcessingForm.resources

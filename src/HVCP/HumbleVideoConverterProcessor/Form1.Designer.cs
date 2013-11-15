@@ -45,7 +45,7 @@
             // 
             // ProcessButton
             // 
-            this.ProcessButton.Location = new System.Drawing.Point(104, 114);
+            this.ProcessButton.Location = new System.Drawing.Point(122, 115);
             this.ProcessButton.Name = "ProcessButton";
             this.ProcessButton.Size = new System.Drawing.Size(75, 23);
             this.ProcessButton.TabIndex = 1;
@@ -55,7 +55,7 @@
             // 
             // SubtitlesButton
             // 
-            this.SubtitlesButton.Location = new System.Drawing.Point(175, 193);
+            this.SubtitlesButton.Location = new System.Drawing.Point(216, 189);
             this.SubtitlesButton.Name = "SubtitlesButton";
             this.SubtitlesButton.Size = new System.Drawing.Size(75, 23);
             this.SubtitlesButton.TabIndex = 2;
@@ -67,12 +67,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(343, 257);
             this.Controls.Add(this.SubtitlesButton);
             this.Controls.Add(this.ProcessButton);
             this.Controls.Add(this.ConvertButton);
             this.Name = "Form1";
-            this.Text = "HVCP - Main";
+            this.Text = "Humble Video Converter and Processor";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 

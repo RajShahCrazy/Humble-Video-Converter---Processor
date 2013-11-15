@@ -13,6 +13,7 @@ namespace HumbleVideoConverterProcessor
     public partial class Form1 : Form
     {
         private Form2 form_subtitle;
+        private ProcessingForm form_processing;
 
         public Form1()
         {
@@ -27,6 +28,9 @@ namespace HumbleVideoConverterProcessor
 
         private void ProcessButton_Click(object sender, EventArgs e)
         {
+            form_processing = new ProcessingForm();
+            form_processing.Activate();
+            form_processing.Show();
 
         }
 
@@ -39,7 +43,7 @@ namespace HumbleVideoConverterProcessor
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
