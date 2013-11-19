@@ -88,7 +88,7 @@ namespace HumbleVideoConverterProcessor
 
         private void extractAudio_Click(object sender, EventArgs e)
         {
-            string args = " -i " + previewVideoProcessing.URL + " -vn -ac 2 -ar 44100 -ab 320k -f mp3 " + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "AudioExtracted", "mp3");
+            string args = " -i " + @"""" + previewVideoProcessing.URL + @"""" + " -vn -ac 2 -ar 44100 -ab 320k -f mp3 " + @"""" + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "AudioExtracted", "mp3") + @"""";
             String commandResult = FFMpegProxy.runCommand(args);
             if (commandResult != null)
             {
@@ -99,7 +99,7 @@ namespace HumbleVideoConverterProcessor
 
         private void muteAudio_Click(object sender, EventArgs e)
         {
-            string args = " -i " + previewVideoProcessing.URL + " -an -q:v 0 " + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "AudioMuted");
+            string args = " -i " + @"""" + previewVideoProcessing.URL + @"""" + " -an -q:v 0 " + @"""" + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "AudioMuted") + @"""";
             String commandResult = FFMpegProxy.runCommand(args);
             if (commandResult != null)
             {
