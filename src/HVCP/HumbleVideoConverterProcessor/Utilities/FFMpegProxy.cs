@@ -36,7 +36,6 @@ namespace HumbleVideoConverterProcessor
                 + Path.DirectorySeparatorChar
                 + Path.GetFileNameWithoutExtension(inputFile)
                 + outputFileName
-                + "."
                 + (outputExt == null ? Path.GetExtension(inputFile) : outputExt);
         }
 

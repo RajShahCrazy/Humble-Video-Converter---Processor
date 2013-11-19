@@ -40,7 +40,9 @@ namespace HumbleVideoConverterProcessor
         private void speedVideo_Click(object sender, EventArgs e)
         {
             //Hardcoding the speed - this will create a 4X video
-            string args = "-y -i " + @"""" + previewVideoProcessing.URL + @"""" + " -r 16 -filter:v " + "\"setpts=0.125*PTS\"" + " -an " + @"""" + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "_faster", "wmv") + @"""";
+            string args = "-y -i " + @"""" + previewVideoProcessing.URL + @"""" + " -r 16 -filter:v " 
+                                   + "\"setpts=0.125*PTS\"" + " -an " + @""""
+                                   + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "_faster", Path.GetExtension(previewVideoProcessing.URL)) + @"""";
             String commandResult = FFMpegProxy.runCommand(args);
             if (commandResult != null)
             {
@@ -110,10 +112,11 @@ namespace HumbleVideoConverterProcessor
             //validate the file and mix it with video
             if (openAudioForMixingWithVideo.FileName.Length > 0)
             {
-                string args = " -i " + @"""" + previewVideoProcessing.URL + @"""" + 
-                                " -i " + @"""" + openAudioForMixingWithVideo.FileName.ToString() + @"""" +
-                                    " -vcodec copy -acodec copy "
-                                    + @"""" + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "AudioMixedToVideo", Path.GetExtension(previewVideoProcessing.URL)) + @"""";
+                string args = "-y -i " + @"""" + previewVideoProcessing.URL + @"""" + 
+                                " -i " + @"""" + openAudioForMixingWithVideo.FileName.ToString() + @""""
+                                       + " -vcodec copy -acodec copy "
+                                       + @"""" + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "_AudioMixedToVideo", Path.GetExtension(previewVideoProcessing.URL)) + @"""";
+                
                 String commandResult = FFMpegProxy.runCommand(args);
                 if (commandResult != null)
                 {
@@ -125,7 +128,8 @@ namespace HumbleVideoConverterProcessor
 
         private void extractAudio_Click(object sender, EventArgs e)
         {
-            string args = " -i " + @"""" + previewVideoProcessing.URL + @"""" + " -vn -ac 2 -ar 44100 -ab 320k -f mp3 " + @"""" + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "AudioExtracted", "mp3") + @"""";
+            string args = "-y -i " + @"""" + previewVideoProcessing.URL + @"""" + " -vn -ac 2 -ar 44100 -ab 320k -f mp3 " + @"""" 
+                                   + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "_AudioExtracted", ".mp3") + @"""";
             String commandResult = FFMpegProxy.runCommand(args);
             if (commandResult != null)
             {
@@ -136,7 +140,8 @@ namespace HumbleVideoConverterProcessor
 
         private void muteAudio_Click(object sender, EventArgs e)
         {
-            string args = " -i " + @"""" + previewVideoProcessing.URL + @"""" + " -an -q:v 0 " + @"""" + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "AudioMuted") + @"""";
+            string args = "-y -i " + @"""" + previewVideoProcessing.URL + @"""" + " -an -q:v 0 " + @""""
+                                   + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "_AudioMuted") + @"""";
             String commandResult = FFMpegProxy.runCommand(args);
             if (commandResult != null)
             {
@@ -187,7 +192,9 @@ namespace HumbleVideoConverterProcessor
         private void slowDownVideo_Click(object sender, EventArgs e)
         {
             //Hardcoding the speed to slow down to
-            string args = "-y -i " + @"""" + previewVideoProcessing.URL + @"""" + " -r 16 -filter:v " + "\"setpts=2.0*PTS\"" + " -an " + @"""" + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "_slower", "wmv") + @"""";
+            string args = "-y -i " + @"""" + previewVideoProcessing.URL + @"""" + " -r 16 -filter:v "
+                                   + "\"setpts=2.0*PTS\"" + " -an " + @"""" 
+                                   + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "_slower", Path.GetExtension(previewVideoProcessing.URL)) + @"""";
             String commandResult = FFMpegProxy.runCommand(args);
             if (commandResult != null)
             {
