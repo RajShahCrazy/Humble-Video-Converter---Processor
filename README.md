@@ -8,3 +8,6 @@ How to install?
 1. Download and install git
 2. Clone this repo
 3. Contribute to the project
+
+
+We are very humble people... You should be too. Hence, the name.
