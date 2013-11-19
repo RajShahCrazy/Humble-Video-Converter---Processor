@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using WMPLib;
+using System.IO;
 
 namespace HumbleVideoConverterProcessor
 {
@@ -46,6 +47,11 @@ namespace HumbleVideoConverterProcessor
 
         }
 
+        private bool isVideoFileOpen()
+        {
+            return previewVideoProcessing.URL != null;
+        }
+
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog openVideoForProcessingDialog = new OpenFileDialog();
@@ -70,6 +76,7 @@ namespace HumbleVideoConverterProcessor
             if (openVideoForProcessingDialog.FileName.Length > 0)
             {
                 previewVideoProcessing.URL = @openVideoForProcessingDialog.FileName.ToString();
+
             }
 
         }
@@ -81,12 +88,23 @@ namespace HumbleVideoConverterProcessor
 
         private void extractAudio_Click(object sender, EventArgs e)
         {
+            string args = " -i " + previewVideoProcessing.URL + " -vn -ac 2 -ar 44100 -ab 320k -f mp3 " + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "AudioExtracted", "mp3");
+            String commandResult = FFMpegProxy.runCommand(args);
+            if (commandResult != null)
+            {
+                MessageBox.Show("Unable to extract the video. Received an exception from the underlying FFMpeg library: " + commandResult);
+            }
 
         }
 
         private void muteAudio_Click(object sender, EventArgs e)
         {
-
+            string args = " -i " + previewVideoProcessing.URL + " -an -q:v 0 " + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "AudioMuted");
+            String commandResult = FFMpegProxy.runCommand(args);
+            if (commandResult != null)
+            {
+                MessageBox.Show("Unable to extract the video. Received an exception from the underlying FFMpeg library: " + commandResult);
+            }
         }
 
         private void createbwVideo_Click(object sender, EventArgs e)
