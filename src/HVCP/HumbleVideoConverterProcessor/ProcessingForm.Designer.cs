@@ -30,13 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProcessingForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.slowDownVideo = new System.Windows.Forms.Button();
             this.addWatermark = new System.Windows.Forms.Button();
             this.createSketch = new System.Windows.Forms.Button();
             this.extractAudio = new System.Windows.Forms.Button();
             this.createbwVideo = new System.Windows.Forms.Button();
             this.muteAudio = new System.Windows.Forms.Button();
             this.addAudio = new System.Windows.Forms.Button();
-            this.speedVideo = new System.Windows.Forms.Button();
+            this.speedUpVideo = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,10 +47,10 @@
             this.convertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.subtitlesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.processingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.processingStatusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.previewVideoProcessing = new AxWMPLib.AxWindowsMediaPlayer();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -59,21 +60,32 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.slowDownVideo);
             this.panel1.Controls.Add(this.addWatermark);
             this.panel1.Controls.Add(this.createSketch);
             this.panel1.Controls.Add(this.extractAudio);
             this.panel1.Controls.Add(this.createbwVideo);
             this.panel1.Controls.Add(this.muteAudio);
             this.panel1.Controls.Add(this.addAudio);
-            this.panel1.Controls.Add(this.speedVideo);
+            this.panel1.Controls.Add(this.speedUpVideo);
             this.panel1.Location = new System.Drawing.Point(64, 90);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(255, 214);
+            this.panel1.Size = new System.Drawing.Size(255, 241);
             this.panel1.TabIndex = 2;
+            // 
+            // slowDownVideo
+            // 
+            this.slowDownVideo.Location = new System.Drawing.Point(3, 35);
+            this.slowDownVideo.Name = "slowDownVideo";
+            this.slowDownVideo.Size = new System.Drawing.Size(249, 23);
+            this.slowDownVideo.TabIndex = 7;
+            this.slowDownVideo.Text = "Slow Down Video";
+            this.slowDownVideo.UseVisualStyleBackColor = true;
+            this.slowDownVideo.Click += new System.EventHandler(this.slowDownVideo_Click);
             // 
             // addWatermark
             // 
-            this.addWatermark.Location = new System.Drawing.Point(3, 178);
+            this.addWatermark.Location = new System.Drawing.Point(3, 209);
             this.addWatermark.Name = "addWatermark";
             this.addWatermark.Size = new System.Drawing.Size(249, 23);
             this.addWatermark.TabIndex = 6;
@@ -83,7 +95,7 @@
             // 
             // createSketch
             // 
-            this.createSketch.Location = new System.Drawing.Point(3, 149);
+            this.createSketch.Location = new System.Drawing.Point(3, 180);
             this.createSketch.Name = "createSketch";
             this.createSketch.Size = new System.Drawing.Size(249, 23);
             this.createSketch.TabIndex = 5;
@@ -93,7 +105,7 @@
             // 
             // extractAudio
             // 
-            this.extractAudio.Location = new System.Drawing.Point(3, 62);
+            this.extractAudio.Location = new System.Drawing.Point(3, 93);
             this.extractAudio.Name = "extractAudio";
             this.extractAudio.Size = new System.Drawing.Size(249, 23);
             this.extractAudio.TabIndex = 4;
@@ -103,7 +115,7 @@
             // 
             // createbwVideo
             // 
-            this.createbwVideo.Location = new System.Drawing.Point(3, 120);
+            this.createbwVideo.Location = new System.Drawing.Point(3, 151);
             this.createbwVideo.Name = "createbwVideo";
             this.createbwVideo.Size = new System.Drawing.Size(249, 23);
             this.createbwVideo.TabIndex = 3;
@@ -113,7 +125,7 @@
             // 
             // muteAudio
             // 
-            this.muteAudio.Location = new System.Drawing.Point(3, 91);
+            this.muteAudio.Location = new System.Drawing.Point(3, 122);
             this.muteAudio.Name = "muteAudio";
             this.muteAudio.Size = new System.Drawing.Size(249, 23);
             this.muteAudio.TabIndex = 2;
@@ -123,23 +135,23 @@
             // 
             // addAudio
             // 
-            this.addAudio.Location = new System.Drawing.Point(3, 33);
+            this.addAudio.Location = new System.Drawing.Point(3, 64);
             this.addAudio.Name = "addAudio";
             this.addAudio.Size = new System.Drawing.Size(249, 23);
             this.addAudio.TabIndex = 1;
-            this.addAudio.Text = "Add Audio (mp3)";
+            this.addAudio.Text = "Add Audio";
             this.addAudio.UseVisualStyleBackColor = true;
             this.addAudio.Click += new System.EventHandler(this.addAudio_Click);
             // 
-            // speedVideo
+            // speedUpVideo
             // 
-            this.speedVideo.Location = new System.Drawing.Point(3, 4);
-            this.speedVideo.Name = "speedVideo";
-            this.speedVideo.Size = new System.Drawing.Size(249, 23);
-            this.speedVideo.TabIndex = 0;
-            this.speedVideo.Text = "Speed Up / Slow Down Video";
-            this.speedVideo.UseVisualStyleBackColor = true;
-            this.speedVideo.Click += new System.EventHandler(this.speedVideo_Click);
+            this.speedUpVideo.Location = new System.Drawing.Point(3, 4);
+            this.speedUpVideo.Name = "speedUpVideo";
+            this.speedUpVideo.Size = new System.Drawing.Size(249, 23);
+            this.speedUpVideo.TabIndex = 0;
+            this.speedUpVideo.Text = "Speed Up Video";
+            this.speedUpVideo.UseVisualStyleBackColor = true;
+            this.speedUpVideo.Click += new System.EventHandler(this.speedVideo_Click);
             // 
             // menuStrip1
             // 
@@ -170,7 +182,7 @@
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -221,6 +233,14 @@
             this.processingToolStripMenuItem.Text = "Processing";
             this.processingToolStripMenuItem.Click += new System.EventHandler(this.processingToolStripMenuItem_Click);
             // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
+            // 
             // processingStatusStrip
             // 
             this.processingStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -245,14 +265,6 @@
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
             this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
             // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
-            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
-            // 
             // previewVideoProcessing
             // 
             this.previewVideoProcessing.Enabled = true;
@@ -274,7 +286,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ProcessingForm";
-            this.Text = "ProcessingForm";
+            this.Text = "HVCP - Processing";
             this.panel1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -297,7 +309,7 @@
         private System.Windows.Forms.ToolStripMenuItem convertToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem subtitlesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem processingToolStripMenuItem;
-        private System.Windows.Forms.Button speedVideo;
+        private System.Windows.Forms.Button speedUpVideo;
         private System.Windows.Forms.Button addAudio;
         private System.Windows.Forms.Button addWatermark;
         private System.Windows.Forms.Button createSketch;
@@ -310,5 +322,6 @@
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private AxWMPLib.AxWindowsMediaPlayer previewVideoProcessing;
+        private System.Windows.Forms.Button slowDownVideo;
     }
 }

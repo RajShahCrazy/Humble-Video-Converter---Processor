@@ -39,7 +39,15 @@ namespace HumbleVideoConverterProcessor
 
         private void speedVideo_Click(object sender, EventArgs e)
         {
-            processingStatusStrip.Text = "Speed up / Slow down videos";
+            //Hardcoding the speed - this will create a 4X video
+            string args = "-y -i " + @"""" + previewVideoProcessing.URL + @"""" + " -r 16 -filter:v " + "\"setpts=0.125*PTS\"" + " -an " + @"""" + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "_faster", "wmv") + @"""";
+            String commandResult = FFMpegProxy.runCommand(args);
+            if (commandResult != null)
+            {
+                MessageBox.Show("Unable to speed up the video. Received an exception from the underlying FFMpeg library: " + commandResult);
+            }
+
+
         }
 
         private void processingStatusStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -83,7 +91,36 @@ namespace HumbleVideoConverterProcessor
 
         private void addAudio_Click(object sender, EventArgs e)
         {
+            OpenFileDialog openAudioForMixingWithVideo = new OpenFileDialog();
 
+            openAudioForMixingWithVideo.DefaultExt = "mp3";
+
+            //add supporting file types in this format
+            openAudioForMixingWithVideo.Filter = "MP3 files (.mp3)|*.mp3"
+                + "|WMA files (.wma)|*.wma"
+                //add new file formats to support here 
+                //format to use: "|FileFormat files (*.ext)|*.ext"
+                //example: "|WMV files (*.wmv)|*.wmv"
+                + "|All files (*.*)|*.*";
+
+            openAudioForMixingWithVideo.FilterIndex = 1;
+            openAudioForMixingWithVideo.Multiselect = true;
+            openAudioForMixingWithVideo.ShowDialog();
+
+            //validate the file and mix it with video
+            if (openAudioForMixingWithVideo.FileName.Length > 0)
+            {
+                string args = " -i " + @"""" + previewVideoProcessing.URL + @"""" + 
+                                " -i " + @"""" + openAudioForMixingWithVideo.FileName.ToString() + @"""" +
+                                    " -vcodec copy -acodec copy "
+                                    + @"""" + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "AudioMixedToVideo", Path.GetExtension(previewVideoProcessing.URL)) + @"""";
+                String commandResult = FFMpegProxy.runCommand(args);
+                if (commandResult != null)
+                {
+                    MessageBox.Show("Unable to mix audio to video. Received an exception from the underlying FFMpeg library: " + commandResult);
+                }
+
+            }
         }
 
         private void extractAudio_Click(object sender, EventArgs e)
@@ -122,11 +159,6 @@ namespace HumbleVideoConverterProcessor
 
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void processingToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -150,6 +182,17 @@ namespace HumbleVideoConverterProcessor
             {
             }
 
+        }
+
+        private void slowDownVideo_Click(object sender, EventArgs e)
+        {
+            //Hardcoding the speed to slow down to
+            string args = "-y -i " + @"""" + previewVideoProcessing.URL + @"""" + " -r 16 -filter:v " + "\"setpts=2.0*PTS\"" + " -an " + @"""" + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "_slower", "wmv") + @"""";
+            String commandResult = FFMpegProxy.runCommand(args);
+            if (commandResult != null)
+            {
+                MessageBox.Show("Unable to slow down the video. Received an exception from the underlying FFMpeg library: " + commandResult);
+            }
         }
     }
 }
