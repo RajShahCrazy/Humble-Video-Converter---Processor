@@ -78,18 +78,17 @@ namespace HumbleVideoConverterProcessor
 
         private void btn_write_Click(object sender, EventArgs e)
         {
-            string fake_path = "...";
+            string path = srtFileName;
             int count = 0;
             string value = "";
 
-            for (int rows = 0; rows < dataGridView1.Rows.Count; rows++)
+            for (int rows = 0; rows < dataGridView1.Rows.Count-1; rows++)
             {
-
+                count++;
+                value = count + Environment.NewLine;
+                
                 for (int col = 0; col < dataGridView1.Rows[rows].Cells.Count; col++)
                 {
-                    count++;
-                    value = count + Environment.NewLine;
-                    
                     if (col == 0)
                         value = value + dataGridView1.Rows[rows].Cells[col].Value.ToString();
                     if( col == 1)
@@ -97,11 +96,15 @@ namespace HumbleVideoConverterProcessor
                     if (col == 2)
                     {
                         value = value + dataGridView1.Rows[rows].Cells[col].Value.ToString() + Environment.NewLine + Environment.NewLine;
+                        if(count == 1)
+                            System.IO.File.WriteAllText(path, value);
+                        else
+                            File.AppendAllText(path, value);
                     }
                 }
             }
 
-            System.IO.File.WriteAllText(fake_path, value);
+            
         }
 
         private void fineToolStripMenuItem_Click(object sender, EventArgs e)
@@ -155,7 +158,7 @@ namespace HumbleVideoConverterProcessor
                 }
 
                 //read srt file
-
+                srtFileReader.Close();
 
             } else {
                 MessageBox.Show(srtFileName + " does not exists. The file will be created");
