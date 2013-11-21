@@ -158,7 +158,28 @@ namespace HumbleVideoConverterProcessor
                 }
 
                 //read srt file
+                String line = String.Empty;
+                String strNum = String.Empty;
+                String strTime;
+                String strText;
+
+                while ((line = srtFileReader.ReadLine()) != null)
+                {
+                    Console.WriteLine(line);
+                    //counter++;
+                    string[] words = line.Split(' ');
+                    //if(words.
+
+                }
+
+                //dataGridView1.Rows.Add(start_time, end_time, txb_text.Text);
+                //dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Ascending);
+
+
                 srtFileReader.Close();
+
+                // Suspend the screen.
+                //Console.ReadLine();
 
             } else {
                 MessageBox.Show(srtFileName + " does not exists. The file will be created");
