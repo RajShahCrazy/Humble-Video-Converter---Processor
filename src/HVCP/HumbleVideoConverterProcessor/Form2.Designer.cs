@@ -31,10 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Start = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.End = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sub_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txb_sh = new System.Windows.Forms.TextBox();
             this.txb_sm = new System.Windows.Forms.TextBox();
             this.txb_ss = new System.Windows.Forms.TextBox();
@@ -59,6 +55,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txb_sms = new System.Windows.Forms.TextBox();
             this.txb_ems = new System.Windows.Forms.TextBox();
+            this.Start = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.End = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sub_Text = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -78,7 +77,6 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Num,
             this.Start,
             this.End,
             this.Sub_Text});
@@ -87,30 +85,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1017, 331);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Num
-            // 
-            this.Num.HeaderText = "Num";
-            this.Num.Name = "Num";
-            this.Num.Width = 50;
-            // 
-            // Start
-            // 
-            this.Start.HeaderText = "Start";
-            this.Start.Name = "Start";
-            this.Start.Width = 120;
-            // 
-            // End
-            // 
-            this.End.HeaderText = "End";
-            this.End.Name = "End";
-            this.End.Width = 120;
-            // 
-            // Sub_Text
-            // 
-            this.Sub_Text.HeaderText = "Text";
-            this.Sub_Text.Name = "Sub_Text";
-            this.Sub_Text.Width = 685;
             // 
             // txb_sh
             // 
@@ -163,6 +137,7 @@
             this.txb_text.Name = "txb_text";
             this.txb_text.Size = new System.Drawing.Size(435, 155);
             this.txb_text.TabIndex = 8;
+            this.txb_text.TextChanged += new System.EventHandler(this.txb_text_TextChanged);
             // 
             // label1
             // 
@@ -226,6 +201,7 @@
             this.btn_add.TabIndex = 15;
             this.btn_add.Text = "Add";
             this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // btn_write
             // 
@@ -288,7 +264,7 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -316,6 +292,24 @@
             this.txb_ems.Size = new System.Drawing.Size(63, 20);
             this.txb_ems.TabIndex = 23;
             this.txb_ems.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // Start
+            // 
+            this.Start.HeaderText = "Start";
+            this.Start.Name = "Start";
+            this.Start.Width = 120;
+            // 
+            // End
+            // 
+            this.End.HeaderText = "End";
+            this.End.Name = "End";
+            this.End.Width = 120;
+            // 
+            // Sub_Text
+            // 
+            this.Sub_Text.HeaderText = "Text";
+            this.Sub_Text.Name = "Sub_Text";
+            this.Sub_Text.Width = 685;
             // 
             // Form2
             // 
@@ -378,10 +372,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.Button btn_write;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Num;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Start;
-        private System.Windows.Forms.DataGridViewTextBoxColumn End;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sub_Text;
         private System.Windows.Forms.Button btn_hardsub;
         private System.Windows.Forms.Button btn_addStart;
         private System.Windows.Forms.Button btn_addEnd;
@@ -391,5 +381,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txb_sms;
         private System.Windows.Forms.TextBox txb_ems;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Start;
+        private System.Windows.Forms.DataGridViewTextBoxColumn End;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sub_Text;
     }
 }

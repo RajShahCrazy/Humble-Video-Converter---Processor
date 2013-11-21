@@ -78,7 +78,30 @@ namespace HumbleVideoConverterProcessor
 
         private void btn_write_Click(object sender, EventArgs e)
         {
+            string fake_path = "...";
+            int count = 0;
+            string value = "";
 
+            for (int rows = 0; rows < dataGridView1.Rows.Count; rows++)
+            {
+
+                for (int col = 0; col < dataGridView1.Rows[rows].Cells.Count; col++)
+                {
+                    count++;
+                    value = count + Environment.NewLine;
+                    
+                    if (col == 0)
+                        value = value + dataGridView1.Rows[rows].Cells[col].Value.ToString();
+                    if( col == 1)
+                        value = value + " --> " + dataGridView1.Rows[rows].Cells[col].Value.ToString() + Environment.NewLine;
+                    if (col == 2)
+                    {
+                        value = value + dataGridView1.Rows[rows].Cells[col].Value.ToString() + Environment.NewLine + Environment.NewLine;
+                    }
+                }
+            }
+
+            System.IO.File.WriteAllText(fake_path, value);
         }
 
         private void fineToolStripMenuItem_Click(object sender, EventArgs e)
@@ -158,6 +181,14 @@ namespace HumbleVideoConverterProcessor
             txb_sm.Text = (t.Minutes).ToString();
             txb_ss.Text = (t.Seconds).ToString();
             txb_sms.Text = (t.Milliseconds).ToString();
+            if (txb_sh.Text.Length == 1)
+                txb_sh.Text = "0" + txb_sh.Text;
+            if (txb_sm.Text.Length == 1)
+                txb_sm.Text = "0" + txb_sm.Text;
+            if (txb_ss.Text.Length == 1)
+                txb_ss.Text = "0" + txb_ss.Text;
+            if (txb_sms.Text.Length < 3)
+                txb_sms.Text = "0" + txb_sms.Text;
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -180,6 +211,26 @@ namespace HumbleVideoConverterProcessor
             txb_em.Text = (t.Minutes).ToString();
             txb_es.Text = (t.Seconds).ToString();
             txb_ems.Text = (t.Milliseconds).ToString();
+            if (txb_eh.Text.Length == 1)
+                txb_eh.Text = "0" + txb_eh.Text;
+            if (txb_em.Text.Length == 1)
+                txb_em.Text = "0" + txb_em.Text;
+            if (txb_es.Text.Length == 1)
+                txb_es.Text = "0" + txb_es.Text;
+            if (txb_ems.Text.Length == 1)
+                txb_ems.Text = "0" + txb_ems.Text;
+        }
+
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+            string start_time = txb_sh.Text +":" + txb_sm.Text + ":" + txb_ss.Text + "," + txb_sms.Text;
+            string end_time = txb_eh.Text +":" + txb_em.Text + ":" + txb_es.Text + "," + txb_ems.Text;
+            dataGridView1.Rows.Add(start_time,end_time,txb_text.Text);
+            dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Ascending);
+        }
+
+        private void txb_text_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
