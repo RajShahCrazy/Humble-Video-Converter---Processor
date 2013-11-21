@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 
 
@@ -15,6 +16,8 @@ namespace HumbleVideoConverterProcessor
 
     public partial class Form2 : Form
     {
+        private System.IO.StreamReader srtFileReader;
+        private String srtFileName;
 
         public Form2()
         {
@@ -109,7 +112,40 @@ namespace HumbleVideoConverterProcessor
                 axWindowsMediaPlayer1.URL = @openVideoForProcessingDialog.FileName.ToString();
 
             }
+            //Read or create srt file
+            string srtName;
+            srtName = @openVideoForProcessingDialog.FileName.ToString();
+            int index = srtName.LastIndexOf('.');
+            srtName = srtName.Substring(0, index) + ".srt";
+            //MessageBox.Show(srtName);
+            srtFileName = new String(srtName.ToCharArray());
+            
+            if(File.Exists(srtFileName)){
+                MessageBox.Show(srtFileName + " already exists");
+                try
+                {
+                    srtFileReader = new System.IO.StreamReader(srtFileName);
+                }
+                catch
+                {
+                    MessageBox.Show("Error:"+ srtFileName + " cannot be open");
+                }
 
+                //read srt file
+
+
+            } else {
+                MessageBox.Show(srtFileName + " does not exists. The file will be created");
+                try
+                {
+                    File.Create(srtFileName);
+                }
+                catch
+                {
+                    MessageBox.Show("Error:" + srtFileName + " cannot be created");
+                }
+            }
+            
         }
 
         private void btn_addStart_Click(object sender, EventArgs e)
