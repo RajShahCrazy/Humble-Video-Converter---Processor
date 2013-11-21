@@ -15,7 +15,6 @@ namespace HumbleVideoConverterProcessor
 
     public partial class Form2 : Form
     {
-        WMPLib.WindowsMediaPlayer Player;
 
         public Form2()
         {
@@ -25,8 +24,8 @@ namespace HumbleVideoConverterProcessor
         private void Form2_Load(object sender, EventArgs e)
         {
             // TODO  Insert a valid path in the line below.
-            MessageBox.Show("Form 2 loaded");
-            PlayFile(@"Wildlife.wmv");
+            // MessageBox.Show("Form 2 loaded");
+           // PlayFile(@"Wildlife.wmv");
         }
 
         private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
@@ -37,13 +36,12 @@ namespace HumbleVideoConverterProcessor
         
         private void PlayFile(String url)
         {
-            Player = new WMPLib.WindowsMediaPlayer();
-            Player.PlayStateChange +=
-                new WMPLib._WMPOCXEvents_PlayStateChangeEventHandler(Player_PlayStateChange);
-            Player.MediaError +=
-                new WMPLib._WMPOCXEvents_MediaErrorEventHandler(Player_MediaError);
-            Player.URL = url;
-            Player.controls.play();
+            //axWindowsMediaPlayer1.PlayStateChange +=
+            //    new WMPLib._WMPOCXEvents_PlayStateChangeEventHandler(Player_PlayStateChange);
+            //axWindowsMediaPlayer1.MediaError +=
+            //    new WMPLib._WMPOCXEvents_MediaErrorEventHandler(Player_MediaError);
+            //axWindowsMediaPlayer1.URL = url;
+            //axWindowsMediaPlayer1.controls.play();
         }
 
         private void Player_PlayStateChange(int NewState)
@@ -72,6 +70,80 @@ namespace HumbleVideoConverterProcessor
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void btn_write_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openVideoForProcessingDialog = new OpenFileDialog();
+
+            openVideoForProcessingDialog.DefaultExt = "wmv";
+
+            //add supporting file types in this format
+            openVideoForProcessingDialog.Filter = "AVI files (.avi)|*.avi"
+                + "|MKV files (.mkv)|*.mkv"
+                + "|MPEG-4 files (*.*)|*.mpeg4"
+                + "|WMV files (*.wmv)|*.wmv"
+                //add new file formats to support here 
+                //format to use: "|FileFormat files (*.ext)|*.ext"
+                //example: "|WMV files (*.wmv)|*.wmv"
+                + "|All files (*.*)|*.*";
+
+            openVideoForProcessingDialog.FilterIndex = 1;
+            openVideoForProcessingDialog.Multiselect = true;
+            openVideoForProcessingDialog.ShowDialog();
+
+            //validate the file and show it in the player stub
+            if (openVideoForProcessingDialog.FileName.Length > 0)
+            {
+                axWindowsMediaPlayer1.URL = @openVideoForProcessingDialog.FileName.ToString();
+
+            }
+
+        }
+
+        private void btn_addStart_Click(object sender, EventArgs e)
+        {
+            double currentPosition;
+            currentPosition = (axWindowsMediaPlayer1.Ctlcontrols.currentPosition);
+            //MessageBox.Show(currentPosition.ToString());
+            TimeSpan t = TimeSpan.FromSeconds(currentPosition);
+            txb_sh.Text = (t.Hours).ToString();
+            txb_sm.Text = (t.Minutes).ToString();
+            txb_ss.Text = (t.Seconds).ToString();
+            txb_sms.Text = (t.Milliseconds).ToString();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_addEnd_Click(object sender, EventArgs e)
+        {
+            double currentPosition;
+            currentPosition = (axWindowsMediaPlayer1.Ctlcontrols.currentPosition);
+            //MessageBox.Show(currentPosition.ToString());
+            TimeSpan t = TimeSpan.FromSeconds(currentPosition);
+            txb_eh.Text = (t.Hours).ToString();
+            txb_em.Text = (t.Minutes).ToString();
+            txb_es.Text = (t.Seconds).ToString();
+            txb_ems.Text = (t.Milliseconds).ToString();
 
         }
     }

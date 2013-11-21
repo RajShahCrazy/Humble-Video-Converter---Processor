@@ -46,3 +46,5 @@ C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project\src\HVCP\H
 C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\HumbleVideoConverterProcessor.Properties.Resources.resources
 C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Jaewook\Documents\GitHub\Humble-Video-Converter---Processor\src\HVCP\HumbleVideoConverterProcessor\bin\Debug\Utilities\ffmpeg.exe
+C:\Users\Jaewook\Documents\GitHub\Humble-Video-Converter---Processor\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\HumbleVideoConverterProcessor.ProcessingForm.resources
