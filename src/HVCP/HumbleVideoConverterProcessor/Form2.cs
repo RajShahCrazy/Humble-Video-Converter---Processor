@@ -82,27 +82,38 @@ namespace HumbleVideoConverterProcessor
             int count = 0;
             string value = "";
 
-            for (int rows = 0; rows < dataGridView1.Rows.Count-1; rows++)
+            try
             {
-                count++;
-                value = count + Environment.NewLine;
-                
-                for (int col = 0; col < dataGridView1.Rows[rows].Cells.Count; col++)
+                for (int rows = 0; rows < dataGridView1.Rows.Count - 1; rows++)
                 {
-                    if (col == 0)
-                        value = value + dataGridView1.Rows[rows].Cells[col].Value.ToString();
-                    if( col == 1)
-                        value = value + " --> " + dataGridView1.Rows[rows].Cells[col].Value.ToString() + Environment.NewLine;
-                    if (col == 2)
+                    count++;
+                    value = count + Environment.NewLine;
+
+                    for (int col = 0; col < dataGridView1.Rows[rows].Cells.Count; col++)
                     {
-                        value = value + dataGridView1.Rows[rows].Cells[col].Value.ToString() + Environment.NewLine + Environment.NewLine;
-                        if(count == 1)
-                            System.IO.File.WriteAllText(path, value);
-                        else
-                            File.AppendAllText(path, value);
+                        if (col == 0)
+                            value = value + dataGridView1.Rows[rows].Cells[col].Value.ToString();
+                        if (col == 1)
+                            value = value + " --> " + dataGridView1.Rows[rows].Cells[col].Value.ToString() + Environment.NewLine;
+                        if (col == 2)
+                        {
+                            value = value + dataGridView1.Rows[rows].Cells[col].Value.ToString() + Environment.NewLine + Environment.NewLine;
+                            if (count == 1)
+                                System.IO.File.WriteAllText(path, value);
+                            else
+                                File.AppendAllText(path, value);
+                        }
                     }
                 }
             }
+            catch (Exception er) 
+            {
+                MessageBox.Show("Error: srt file writing fail: " + er.ToString());
+ 
+            }
+
+
+            MessageBox.Show(srtFileName + " srt file writing completed");
 
             
         }
@@ -146,8 +157,9 @@ namespace HumbleVideoConverterProcessor
             //MessageBox.Show(srtName);
             srtFileName = new String(srtName.ToCharArray());
             
-            if(File.Exists(srtFileName)){
-                MessageBox.Show(srtFileName + " already exists");
+            if(File.Exists(srtFileName))
+            {
+                MessageBox.Show(srtFileName + " already exists. Open and read the srt file");
                 try
                 {
                     srtFileReader = new System.IO.StreamReader(srtFileName);
@@ -160,21 +172,78 @@ namespace HumbleVideoConverterProcessor
                 //read srt file
                 String line = String.Empty;
                 String strNum = String.Empty;
-                String strTime;
-                String strText;
+                String strStartTime = String.Empty;
+                String strEndTime = String.Empty;
+                String strText = String.Empty;
 
+                int state = 0; //0: number, 1: time, 2: text, 3: blank space
+                int number = 0;
                 while ((line = srtFileReader.ReadLine()) != null)
                 {
                     Console.WriteLine(line);
-                    //counter++;
-                    string[] words = line.Split(' ');
-                    //if(words.
+                    if (state == 0)
+                    {
+                        if (line.Equals(String.Empty)) continue; //skip the blank space
+                        try
+                        {
+                            number = Convert.ToInt32(line);
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Error: srt file is wrong format (Number): " + line);
+                        }
+                        state = 1;
+                        continue;
+                    }
+                    if (state == 1)
+                    {
+                        string[] words = line.Split(' ');
+                        if (words.Length != 3)
+                        {
+                            MessageBox.Show("Error: srt file is wrong format (Time): " + line);
+                        }
+                        strStartTime = words[0];
+                        strEndTime = words[2];
+                        state = 2;
+                        continue;
+                    }
+                    if (state == 2)
+                    {
+                        if (line.Equals(String.Empty))
+                        {
+                            Console.WriteLine("write the subtitle numebr " + number + "\n");
+                            strText = strText.Remove(strText.Length - 2); // delete the last "\r\n"
+                            dataGridView1.Rows.Add(strStartTime, strEndTime, strText);
+                            strStartTime = String.Empty;
+                            strEndTime = String.Empty;
+                            strText = String.Empty;
+                            state = 0;
+                            continue;
+                        }
+                        else if(line.Length > 0)
+                        {
+                            strText += line;
+                            strText += "\r\n";
+                            continue;
+                        }
+                    }
+
+                    //string[] words = line.Split(' ');
+                    //foreach(string word in words) {
+                    //    Console.WriteLine(word);
+                    //}
+                    
 
                 }
-
-                //dataGridView1.Rows.Add(start_time, end_time, txb_text.Text);
-                //dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Ascending);
-
+                //write the last subtitle to the datagrid
+                if (state == 2)
+                {
+                    Console.WriteLine("write the subtitle numebr " + number + "\n");
+                    strText = strText.Remove(strText.Length - 2); // delete the last "\r\n"
+                    dataGridView1.Rows.Add(strStartTime, strEndTime, strText);
+                }
+                //sort the datagrid
+                dataGridView1.Sort(dataGridView1.Columns[0], ListSortDirection.Ascending);
 
                 srtFileReader.Close();
 
@@ -182,14 +251,14 @@ namespace HumbleVideoConverterProcessor
                 //Console.ReadLine();
 
             } else {
-                MessageBox.Show(srtFileName + " does not exists. The file will be created");
+                MessageBox.Show(srtFileName + " does not exists. The srt file will be created");
                 try
                 {
-                    File.Create(srtFileName);
+                    //File.Create(srtFileName); //the file will be crated when writing
                 }
                 catch
                 {
-                    MessageBox.Show("Error:" + srtFileName + " cannot be created");
+                    //MessageBox.Show("Error:" + srtFileName + " cannot be created");
                 }
             }
             

@@ -309,7 +309,7 @@
             // 
             this.Sub_Text.HeaderText = "Text";
             this.Sub_Text.Name = "Sub_Text";
-            this.Sub_Text.Width = 685;
+            this.Sub_Text.Width = 734;
             // 
             // Form2
             // 
