@@ -39,15 +39,24 @@ namespace HumbleVideoConverterProcessor
 
         private void speedVideo_Click(object sender, EventArgs e)
         {
-            //Hardcoding the speed - this will create a 4X video
-            string args = "-y -i " + @"""" + previewVideoProcessing.URL + @"""" + " -r 16 -filter:v " 
-                                   + "\"setpts=0.125*PTS\"" + " -an " + @""""
-                                   + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "_faster", Path.GetExtension(previewVideoProcessing.URL)) + @"""";
-            String commandResult = FFMpegProxy.runCommand(args);
-            if (commandResult != null)
+            try
             {
-                MessageBox.Show("Unable to speed up the video. Received an exception from the underlying FFMpeg library: " + commandResult);
+
+                //Hardcoding the speed - this will create a 4X video
+                string args = "-y -i " + @"""" + previewVideoProcessing.URL + @"""" + " -r 16 -filter:v "
+                                       + "\"setpts=0.125*PTS\"" + " -an " + @""""
+                                       + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "_faster", Path.GetExtension(previewVideoProcessing.URL)) + @"""";
+                String commandResult = FFMpegProxy.runCommand(args);
+                if (commandResult != null)
+                {
+                    MessageBox.Show("Unable to speed up the video. Received an exception from the underlying FFMpeg library: " + commandResult);
+                }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Open a file using File->Open and then choose an action to perform");
+            }
+            
 
 
         }
@@ -112,11 +121,11 @@ namespace HumbleVideoConverterProcessor
             //validate the file and mix it with video
             if (openAudioForMixingWithVideo.FileName.Length > 0)
             {
-                string args = "-y -i " + @"""" + previewVideoProcessing.URL + @"""" + 
+                string args = "-y -i " + @"""" + previewVideoProcessing.URL + @"""" +
                                 " -i " + @"""" + openAudioForMixingWithVideo.FileName.ToString() + @""""
                                        + " -vcodec copy -acodec copy "
                                        + @"""" + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "_AudioMixedToVideo", Path.GetExtension(previewVideoProcessing.URL)) + @"""";
-                
+
                 String commandResult = FFMpegProxy.runCommand(args);
                 if (commandResult != null)
                 {
@@ -124,29 +133,46 @@ namespace HumbleVideoConverterProcessor
                 }
 
             }
+            
         }
 
         private void extractAudio_Click(object sender, EventArgs e)
         {
-            string args = "-y -i " + @"""" + previewVideoProcessing.URL + @"""" + " -vn -ac 2 -ar 44100 -ab 320k -f mp3 " + @"""" 
-                                   + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "_AudioExtracted", ".mp3") + @"""";
-            String commandResult = FFMpegProxy.runCommand(args);
-            if (commandResult != null)
+            try
             {
-                MessageBox.Show("Unable to extract the video. Received an exception from the underlying FFMpeg library: " + commandResult);
+                string args = "-y -i " + @"""" + previewVideoProcessing.URL + @"""" + " -vn -ac 2 -ar 44100 -ab 320k -f mp3 " + @""""
+                                   + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "_AudioExtracted", ".mp3") + @"""";
+                String commandResult = FFMpegProxy.runCommand(args);
+                if (commandResult != null)
+                {
+                    MessageBox.Show("Unable to extract the video. Received an exception from the underlying FFMpeg library: " + commandResult);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Open a file using File->Open and then choose an action to perform");
             }
 
         }
 
         private void muteAudio_Click(object sender, EventArgs e)
         {
-            string args = "-y -i " + @"""" + previewVideoProcessing.URL + @"""" + " -an -q:v 0 " + @""""
-                                   + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "_AudioMuted") + @"""";
-            String commandResult = FFMpegProxy.runCommand(args);
-            if (commandResult != null)
+            try
             {
-                MessageBox.Show("Unable to extract the video. Received an exception from the underlying FFMpeg library: " + commandResult);
+
+                string args = "-y -i " + @"""" + previewVideoProcessing.URL + @"""" + " -an -q:v 0 " + @""""
+                                       + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "_AudioMuted") + @"""";
+                String commandResult = FFMpegProxy.runCommand(args);
+                if (commandResult != null)
+                {
+                    MessageBox.Show("Unable to extract the video. Received an exception from the underlying FFMpeg library: " + commandResult);
+                }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Open a file using File->Open and then choose an action to perform");
+            }
+
         }
 
         private void createbwVideo_Click(object sender, EventArgs e)
@@ -161,6 +187,14 @@ namespace HumbleVideoConverterProcessor
 
         private void addWatermark_Click(object sender, EventArgs e)
         {
+            try
+            {
+                //add code to add watermark in here 
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Open a file using File->Open and then choose an action to perform");
+            }
 
         }
 
@@ -191,15 +225,24 @@ namespace HumbleVideoConverterProcessor
 
         private void slowDownVideo_Click(object sender, EventArgs e)
         {
-            //Hardcoding the speed to slow down to
-            string args = "-y -i " + @"""" + previewVideoProcessing.URL + @"""" + " -r 16 -filter:v "
-                                   + "\"setpts=2.0*PTS\"" + " -an " + @"""" 
-                                   + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "_slower", Path.GetExtension(previewVideoProcessing.URL)) + @"""";
-            String commandResult = FFMpegProxy.runCommand(args);
-            if (commandResult != null)
+            try
             {
-                MessageBox.Show("Unable to slow down the video. Received an exception from the underlying FFMpeg library: " + commandResult);
+
+                //Hardcoding the speed to slow down to 1/2 original speed
+                string args = "-y -i " + @"""" + previewVideoProcessing.URL + @"""" + " -r 16 -filter:v "
+                                       + "\"setpts=2.0*PTS\"" + " -an " + @""""
+                                       + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "_slower", Path.GetExtension(previewVideoProcessing.URL)) + @"""";
+                String commandResult = FFMpegProxy.runCommand(args);
+                if (commandResult != null)
+                {
+                    MessageBox.Show("Unable to slow down the video. Received an exception from the underlying FFMpeg library: " + commandResult);
+                }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Open a file using File->Open and then choose an action to perform");
+            }
+            
         }
     }
 }
