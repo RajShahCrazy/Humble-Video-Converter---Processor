@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -87,7 +87,7 @@ namespace HumbleVideoConverterProcessor
                 //example: "|WMV files (*.wmv)|*.wmv"
                 + "|All files (*.*)|*.*";     
 
-            openVideoForProcessingDialog.FilterIndex = 1;
+            openVideoForProcessingDialog.FilterIndex = 4;
             openVideoForProcessingDialog.Multiselect = true;
             openVideoForProcessingDialog.ShowDialog();
             
@@ -177,7 +177,20 @@ namespace HumbleVideoConverterProcessor
 
         private void createbwVideo_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                string args = "-y -i " + @"""" + previewVideoProcessing.URL + @"""" + " -q:v 0 -vf format=gray " + @""""
+                                       + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "_Grayed") + @"""";
+                String commandResult = FFMpegProxy.runCommand(args);
+                if (commandResult != null)
+                {
+                    MessageBox.Show("Unable to grayscale the video. Received an exception from the underlying FFMpeg library: " + commandResult);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Open a file using File->Open and then choose an action to perform");
+            }
         }
 
         private void createSketch_Click(object sender, EventArgs e)
@@ -189,7 +202,33 @@ namespace HumbleVideoConverterProcessor
         {
             try
             {
-                //add code to add watermark in here 
+                OpenFileDialog openPNGForWatermark = new OpenFileDialog();
+
+                openPNGForWatermark.DefaultExt = "png";
+
+                //add supporting file types in this format
+                openPNGForWatermark.Filter = "PNG files (.png)|*.png";
+
+                openPNGForWatermark.FilterIndex = 1;
+                openPNGForWatermark.Multiselect = false;
+                openPNGForWatermark.ShowDialog();
+
+                //validate the file and show it in the player stub
+                if (openPNGForWatermark.FileName.Length <= 0)
+                {
+                    MessageBox.Show("Please select a valid PNG file for watermarking");
+                    openPNGForWatermark.ShowDialog();
+                }
+
+                string args = "-y -i " + @"""" + previewVideoProcessing.URL + @"""" +  " -i " + @"""" + openPNGForWatermark.FileName.ToString() + @"""" +
+                    " -q:v 0 -filter_complex overlay=\"(main_w/2)-(overlay_w/2):(main_h/2)-(overlay_h)/2\" " + @""""
+                                       + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "_Watermarked") + @"""";
+
+                String commandResult = FFMpegProxy.runCommand(args);
+                if (commandResult != null)
+                {
+                    MessageBox.Show("Unable to grayscale the video. Received an exception from the underlying FFMpeg library: " + commandResult);
+                }
             }
             catch (Exception)
             {
