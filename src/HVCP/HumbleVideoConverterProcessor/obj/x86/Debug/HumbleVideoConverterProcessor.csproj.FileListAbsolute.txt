@@ -63,3 +63,15 @@ C:\Users\sung\Documents\GitHub\Humble-Video-Converter---Processor\src\HVCP\Humbl
 C:\Users\sung\Documents\GitHub\Humble-Video-Converter---Processor\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\HumbleVideoConverterProcessor.ProcessingForm.resources
 C:\Users\sung\Documents\GitHub\Humble-Video-Converter---Processor\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\HumbleVideoConverterProcessor.Properties.Resources.resources
 C:\Users\sung\Documents\GitHub\Humble-Video-Converter---Processor\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\HumbleVideoConverterProcessor.csproj.GenerateResource.Cache
+C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project 3\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\Interop.WMPLib.dll
+C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project 3\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\AxInterop.WMPLib.dll
+C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project 3\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\HumbleVideoConverterProcessor.csproj.ResolveComReference.cache
+C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project 3\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\HumbleVideoConverterProcessor.exe
+C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project 3\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\HumbleVideoConverterProcessor.pdb
+C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project 3\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project 3\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\HumbleVideoConverterProcessor.Form1.resources
+C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project 3\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\HumbleVideoConverterProcessor.Form2.resources
+C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project 3\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\HumbleVideoConverterProcessor.ProcessingForm.resources
+C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project 3\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\HumbleVideoConverterProcessor.Properties.Resources.resources
+C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project 3\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project 3\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\GenerateResource.write.1.tlog

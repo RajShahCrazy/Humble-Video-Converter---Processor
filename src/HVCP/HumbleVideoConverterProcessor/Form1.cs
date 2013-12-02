@@ -23,7 +23,9 @@ namespace HumbleVideoConverterProcessor
 
         private void ConvertButton_Click(object sender, EventArgs e)
         {
-
+            Converter_Form form_processing = new Converter_Form();
+            form_processing.Activate();
+            form_processing.Show();
         }
 
         private void ProcessButton_Click(object sender, EventArgs e)

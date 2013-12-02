@@ -7,3 +7,5 @@ c:\users\raj\documents\visual studio 2010\Projects\Humble Video Converter Proces
 c:\users\raj\documents\visual studio 2010\Projects\Humble Video Converter Processor Converter\Humble Video Converter Processor Converter\obj\x86\Debug\Humble Video Converter Processor Converter.exe
 c:\users\raj\documents\visual studio 2010\Projects\Humble Video Converter Processor Converter\Humble Video Converter Processor Converter\obj\x86\Debug\Humble Video Converter Processor Converter.pdb
 c:\users\raj\documents\visual studio 2010\Projects\Humble Video Converter Processor Converter\Humble Video Converter Processor Converter\obj\x86\Debug\Humble_Video_Converter_Processor_Converter.ConverterModule.resources
+C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project 3\src\Humble Video Converter Processor Converter\Humble Video Converter Processor Converter\obj\x86\Debug\Humble Video Converter Processor Converter.exe
+C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project 3\src\Humble Video Converter Processor Converter\Humble Video Converter Processor Converter\obj\x86\Debug\Humble Video Converter Processor Converter.pdb

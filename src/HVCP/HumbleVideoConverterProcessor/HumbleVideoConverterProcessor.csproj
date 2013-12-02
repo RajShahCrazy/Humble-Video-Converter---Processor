@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converter Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Converter Form.Designer.cs">
+      <DependentUpon>Converter Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +64,7 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="MediaFile.cs" />
     <Compile Include="ProcessingForm.cs">
       <SubType>Form</SubType>
     </Compile>
