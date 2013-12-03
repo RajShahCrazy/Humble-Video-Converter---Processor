@@ -6,7 +6,7 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace Humble_Video_Converter_Processor_Converter
+namespace HumbleVideoConverterProcessor
 {
     class MediaFile
     {
@@ -106,7 +106,7 @@ namespace Humble_Video_Converter_Processor_Converter
                 
                 ProcessStartInfo info = new ProcessStartInfo(Constants.FFMPEG_PATH);
                 //string fullPath = @_fullPath.Replace(@"\\", @"\");
-                info.Arguments = " -i " + @"""" + _fullPath + @"""" + " -f " + _destinationFormat + " " + @"""" + _destinationLocation +"\\" +  _name.Split('.')[0] + "." + _destinationFormat + @"""";
+                info.Arguments = "-y -i " + @"""" + _fullPath + @"""" + " -f " + _destinationFormat + " " + @"""" + _destinationLocation +"\\" +  _name.Split('.')[0] + "." + _destinationFormat + @"""";
 
                 Process.Start(info);
 

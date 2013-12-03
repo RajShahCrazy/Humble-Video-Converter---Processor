@@ -75,3 +75,9 @@ C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project 3\src\HVCP
 C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project 3\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\HumbleVideoConverterProcessor.Properties.Resources.resources
 C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project 3\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project 3\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project 3\src\HVCP\HumbleVideoConverterProcessor\bin\Debug\Utilities\ffmpeg.exe
+C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project 3\src\HVCP\HumbleVideoConverterProcessor\bin\Debug\HumbleVideoConverterProcessor.exe
+C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project 3\src\HVCP\HumbleVideoConverterProcessor\bin\Debug\HumbleVideoConverterProcessor.pdb
+C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project 3\src\HVCP\HumbleVideoConverterProcessor\bin\Debug\Interop.WMPLib.dll
+C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project 3\src\HVCP\HumbleVideoConverterProcessor\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\Raj\Documents\Classes\Fall 2013\Software Engineering\Project 3\src\HVCP\HumbleVideoConverterProcessor\obj\x86\Debug\HumbleVideoConverterProcessor.ConverterModule.resources

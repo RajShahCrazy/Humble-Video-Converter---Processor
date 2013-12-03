@@ -1,6 +1,17 @@
-﻿namespace HumbleVideoConverterProcessor
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using WMPLib;
+using System.IO;
+
+namespace HumbleVideoConverterProcessor
 {
-    partial class Converter_Form
+    partial class ConverterModule : Form
     {
         /// <summary>
         /// Required designer variable.
@@ -100,7 +111,7 @@
             this.VideoFormats.Name = "VideoFormats";
             this.VideoFormats.Size = new System.Drawing.Size(121, 21);
             this.VideoFormats.TabIndex = 4;
-            this.VideoFormats.SelectedIndexChanged += new System.EventHandler(this.VideoFormats_SelectedIndexChanged);
+            this.VideoFormats.SelectedIndexChanged += new EventHandler(VideoFormats_SelectedIndexChanged);
             // 
             // AudioFormatsDropDownLabel
             // 
@@ -124,7 +135,6 @@
             this.AudioFormats.Name = "AudioFormats";
             this.AudioFormats.Size = new System.Drawing.Size(121, 21);
             this.AudioFormats.TabIndex = 6;
-            this.AudioFormats.SelectedIndexChanged += new System.EventHandler(this.AudioFormats_SelectedIndexChanged);
             // 
             // DestinationFolderLabel
             // 
@@ -167,7 +177,7 @@
             this.ConvertButton.UseVisualStyleBackColor = true;
             this.ConvertButton.Click += new System.EventHandler(this.ConvertButton_Click);
             // 
-            // ConverterModule
+            // Converter_Form
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,7 +194,7 @@
             this.Controls.Add(this.AddFileFromFileExplorer);
             this.Controls.Add(this.VideoListLabel);
             this.Controls.Add(this.VideosToBeConverted);
-            this.Name = "ConverterModule";
+            this.Name = "Converter_Form";
             this.Text = "Converter Form";
             this.ResumeLayout(false);
             this.PerformLayout();

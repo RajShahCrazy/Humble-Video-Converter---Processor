@@ -14,6 +14,7 @@ namespace HumbleVideoConverterProcessor
     {
         private Form2 form_subtitle;
         private ProcessingForm form_processing;
+        private ConverterModule form_converting;
 
         public Form1()
         {
@@ -23,9 +24,9 @@ namespace HumbleVideoConverterProcessor
 
         private void ConvertButton_Click(object sender, EventArgs e)
         {
-            Converter_Form form_processing = new Converter_Form();
-            form_processing.Activate();
-            form_processing.Show();
+            form_converting = new ConverterModule();
+            form_converting.Activate();
+            form_converting.Show();
         }
 
         private void ProcessButton_Click(object sender, EventArgs e)

@@ -1,6 +1,6 @@
-﻿namespace Humble_Video_Converter_Processor_Converter
+﻿namespace HumbleVideoConverterProcessor
 {
-    partial class ConverterModule
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -100,7 +100,6 @@
             this.VideoFormats.Name = "VideoFormats";
             this.VideoFormats.Size = new System.Drawing.Size(121, 21);
             this.VideoFormats.TabIndex = 4;
-            this.VideoFormats.SelectedIndexChanged += new System.EventHandler(this.VideoFormats_SelectedIndexChanged);
             // 
             // AudioFormatsDropDownLabel
             // 
@@ -124,7 +123,6 @@
             this.AudioFormats.Name = "AudioFormats";
             this.AudioFormats.Size = new System.Drawing.Size(121, 21);
             this.AudioFormats.TabIndex = 6;
-            this.AudioFormats.SelectedIndexChanged += new System.EventHandler(this.AudioFormats_SelectedIndexChanged);
             // 
             // DestinationFolderLabel
             // 
@@ -144,7 +142,6 @@
             this.DestinatonFolderChooseButton.TabIndex = 8;
             this.DestinatonFolderChooseButton.Text = "Destination Folder";
             this.DestinatonFolderChooseButton.UseVisualStyleBackColor = true;
-            this.DestinatonFolderChooseButton.Click += new System.EventHandler(this.DestinatonFolderChooseButton_Click);
             // 
             // ProgressBars
             // 
@@ -167,7 +164,7 @@
             this.ConvertButton.UseVisualStyleBackColor = true;
             this.ConvertButton.Click += new System.EventHandler(this.ConvertButton_Click);
             // 
-            // ConverterModule
+            // Form1
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,7 +181,7 @@
             this.Controls.Add(this.AddFileFromFileExplorer);
             this.Controls.Add(this.VideoListLabel);
             this.Controls.Add(this.VideosToBeConverted);
-            this.Name = "ConverterModule";
+            this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
