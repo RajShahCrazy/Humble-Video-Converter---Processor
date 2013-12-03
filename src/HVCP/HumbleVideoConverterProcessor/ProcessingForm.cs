@@ -78,14 +78,14 @@ namespace HumbleVideoConverterProcessor
             openVideoForProcessingDialog.DefaultExt = "wmv";
             
             //add supporting file types in this format
-            openVideoForProcessingDialog.Filter = "AVI files (.avi)|*.avi"
-                + "|MKV files (.mkv)|*.mkv"
-                + "|MPEG-4 files (*.*)|*.mpeg4"
-                + "|WMV files (*.wmv)|*.wmv"
+            openVideoForProcessingDialog.Filter = "AVI files |*.avi"
+                + "|MKV files |*.mkv"
+                + "|MPEG-4 files |*.mpeg4"
+                + "|WMV files |*.wmv"
                 //add new file formats to support here 
                 //format to use: "|FileFormat files (*.ext)|*.ext"
                 //example: "|WMV files (*.wmv)|*.wmv"
-                + "|All files (*.*)|*.*";     
+                + "|All files |*.*";     
 
             openVideoForProcessingDialog.FilterIndex = 4;
             openVideoForProcessingDialog.Multiselect = true;

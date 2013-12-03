@@ -7,6 +7,6 @@ namespace HumbleVideoConverterProcessor
 {
     class Constants
     {
-        public static string FFMPEG_PATH = "C:\\Users\\Raj\\Desktop\\ffmpeg.exe";
+        public static string FFMPEG_PATH = ".\\Utilities\\ffmpeg.exe";
     }
 }

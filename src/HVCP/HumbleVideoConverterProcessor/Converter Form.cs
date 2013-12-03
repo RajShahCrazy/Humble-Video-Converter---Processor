@@ -48,7 +48,14 @@ namespace HumbleVideoConverterProcessor
             // Show Open File dialog
             OpenFileDialog openDlg = new OpenFileDialog();
 
-            openDlg.Filter = "Jpeg files (*.jpg)|*.jpg|Bitmap files (*.bmp)| *.bmp|All Files (*.*)|*.*";
+            openDlg.Filter = "AVI files |*.avi"
+                + "|MKV files |*.mkv"
+                + "|MPEG-4 files |*.mpeg4"
+                + "|WMV files |*.wmv"
+                //add new file formats to support here 
+                //format to use: "|FileFormat files (*.ext)|*.ext"
+                //example: "|WMV files (*.wmv)|*.wmv"
+                + "|All files |*.*";
 
             openDlg.Multiselect = true;
 
