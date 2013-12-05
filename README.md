@@ -16,7 +16,7 @@ How to install?
 ===============
 1. Download HVCP-Installation-Media.zip file from the "Installation Media" folder
 2. Unzip the contents of the file
-3. Run install.exe
+3. Run setup.exe
 4. Follow the directions provided in the installation screens
 5. A new menu entry with folder name "HumbleVideoConverterProcessor" and executable name "HumbleVideoConverterProcessor.exe" will be created. 
 
