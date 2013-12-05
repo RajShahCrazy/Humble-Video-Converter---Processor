@@ -44,7 +44,7 @@ namespace HumbleVideoConverterProcessor
 
                 //Hardcoding the speed - this will create a 4X video
                 string args = "-y -i " + @"""" + previewVideoProcessing.URL + @"""" + " -r 16 -filter:v "
-                                       + "\"setpts=0.125*PTS\"" + " -an " + @""""
+                                       + "\"setpts=0.250*PTS\"" + " -filter:a \"atempo=2.0,atempo=2.0\" " + @""""
                                        + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "_faster", Path.GetExtension(previewVideoProcessing.URL)) + @"""";
                 String commandResult = FFMpegProxy.runCommand(args);
                 if (commandResult != null)
@@ -269,7 +269,7 @@ namespace HumbleVideoConverterProcessor
 
                 //Hardcoding the speed to slow down to 1/2 original speed
                 string args = "-y -i " + @"""" + previewVideoProcessing.URL + @"""" + " -r 16 -filter:v "
-                                       + "\"setpts=2.0*PTS\"" + " -an " + @""""
+                                       + "\"setpts=2.0*PTS\"" + " -filter:a \"atempo=0.5\" " + @""""
                                        + FFMpegProxy.getOutputFileName(previewVideoProcessing.URL, "_slower", Path.GetExtension(previewVideoProcessing.URL)) + @"""";
                 String commandResult = FFMpegProxy.runCommand(args);
                 if (commandResult != null)
